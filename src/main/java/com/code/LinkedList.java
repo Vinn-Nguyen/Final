@@ -35,6 +35,7 @@ public class LinkedList {
         ShapeNode current = head; //start at the head
         while (current != null){ //traverse through the list until the end
             System.out.println(index); //print nodes
+            current = current.next;
         }
     }
 
