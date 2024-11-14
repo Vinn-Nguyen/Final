@@ -8,30 +8,38 @@ package com.code;
 import processing.core.*;
 
 public class Main extends PApplet{
-    LinkedList linkedList; //call
+    //Call class
+    LinkedList linkedList;
     Display display;
+
     public static void main(String[] args)  {
-        PApplet.main("com.code.Main");
+        PApplet.main("com.code.Main"); //processing
     }
 
-    //size
+    //settings
     public void settings(){
-        size(1000, 600); //canvas size
+        fullScreen(); //fullscreex
     }
 
+    //setup: init
     public void setup(){
         linkedList = new LinkedList();  //init
         display = new Display(linkedList, this); //init
         background(0); //black
     }
 
-    //THIS IS SUBJECTED TO CHANGE. I just want to get it to work
+    //draw
     public void draw(){
         display.draw();
     }
 
-    //add a node every time the mouse is pressed, and add it in the mouse's x/y location
+    //mousepress
     public void mousePressed(){
-        display.OnMousePress();
+        display.onMousePress();
+    }
+
+    //keypress
+    public void keyPressed(){
+        display.onKeyPress();
     }
 }

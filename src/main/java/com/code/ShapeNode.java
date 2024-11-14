@@ -1,23 +1,17 @@
 /*
  * Wren Nguyen
  * Project: Final
- * Description: ShapeNode class that contains all the getter/setters/shape info
+ * Description: ShapeNode class that contain the all the getter/setters info for linked lists
  */
 
 package com.code;
 
 public class ShapeNode {
-    public ShapeNode next;
-    float x, y; //x & y for the shapes
-
-    //SHAPE TYPES
-    boolean squareOn;
-    boolean circleOn;
-    boolean rectangleOn;
+    Shape shape; //call shape
+    ShapeNode next; //next node
     
-    public ShapeNode(float x, float y){
-        this.x = x;
-        this.y = y;
+    ShapeNode(Shape shape){
+        this.shape = shape;
         this.next = null;
     }
 
@@ -29,10 +23,5 @@ public class ShapeNode {
     //set next node (insert)
     public void setNext(ShapeNode nextPtr){
         this.next = nextPtr;
-    }
-    
-    //WIP
-    boolean circle(){
-        return circleOn = true;
     }
 }
