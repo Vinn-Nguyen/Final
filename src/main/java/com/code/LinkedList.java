@@ -10,17 +10,19 @@ public class LinkedList {
     //VARIABLES
     public int index = 0; //counter
     public ShapeNode head; //head of the list
-    public ShapeNode next; //next node in the list
+
+    boolean isUndo = false;
 
     public LinkedList(){
         head = null;
-        next = null;
     }
 
      //ISEMPTY: checks if the list is empty
     boolean isEmpty(){ 
         return head == null;
     }
+
+    
 
     //INDEX/COUNTER
     public int getIndex(){
@@ -35,9 +37,10 @@ public class LinkedList {
         
         ShapeNode current = head; //start at the head
         while (current != null){ //traverse through the list until the end
-            System.out.println(index); //print nodes
-            current = current.next; //go to the next one
+            current = current.getNext(); //go to the next one
         }
+        System.out.println(index); //print nodes
+
     }
 
     //INSERT: All shapes will be APPENDED (inserted at the end)
@@ -59,12 +62,30 @@ public class LinkedList {
         }
     }
 
+    //delete the last node
+    void undo(Shape shape){
+        //if its empty return "List is empty."
+        if(isEmpty() && isUndo == true){
+            System.out.println("List is empty.");
+        }
+        else if(isUndo == true){
+        ShapeNode current = head; //start at the head
+        ShapeNode previous = null; //init previous
+        while(current.getNext() != null){ //traverse the list
+            previous = current; //store current into previous
+            current = current.getNext(); //go to the next node
+        }
+        previous.setNext(current.getNext()); //replace the previous with the current
+        index--;
+        }
+    }
+
     //draw
     void drawShapes(){
         ShapeNode current = head; //start at the head
         while(current != null){ //traverse the list
             current.shape.draw(); //draw the current shape
-            current = current.next; //go to the next one
+            current = current.getNext(); //go to the next one
         }
     }
 

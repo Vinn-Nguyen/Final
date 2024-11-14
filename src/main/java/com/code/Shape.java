@@ -19,7 +19,7 @@ public abstract class Shape {
 
         //red, blue, green, transparency
         this.color = main.color(main.random(255), main.random(255), main.random(255), main.random(255));
-        this.sz = main.random(10, 100);
+        this.sz = main.random(10, 150);
     }
 
     public abstract void draw();

@@ -16,6 +16,8 @@ public class Display{
     boolean SQUARE_MODE; //draw square
     boolean RECT_MODE; //draw rect
 
+    boolean isUndo;
+
 
     Display(LinkedList list_, Main main_){
         list = list_;
@@ -38,12 +40,18 @@ public class Display{
             newShape = new Rectangle(main.mouseX, main.mouseY, main);
         }
 
-        //ADD node to the list
+        //insert node to at the end of the list
         list.insert(newShape);
+        list.print();
     }
 
     //Controls what happen when the key is pressed
     public void onKeyPress(){
+        //undo button
+        if(main.key == 'p'){
+            isUndo = true;
+        }
+
         //Q creates Circles
         if(main.key == 'q'){
             CIRCLE_MODE = true; //turn on

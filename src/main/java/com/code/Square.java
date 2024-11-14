@@ -12,7 +12,7 @@ public class Square extends Shape{
         super(x, y, main_); //call superclass
     }
 
-    @Override //override the abstract method to draw a square
+    @Override //override the draw method to draw a square
     public void draw(){
         main.noStroke(); //no outline
         main.fill(color); //fill

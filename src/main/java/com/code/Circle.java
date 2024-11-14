@@ -12,7 +12,7 @@ public class Circle extends Shape {
         super(x, y, main_); //call the superclass
     }
 
-    @Override //override the abstract method to draw a circle
+    @Override //override the draw method to draw a circle
     public void draw(){
         main.noStroke(); //no outline
         main.fill(color); //fill

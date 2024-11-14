@@ -12,7 +12,7 @@ public class Rectangle extends Shape{
         super(x, y, main_); //call superclass
     }
 
-    @Override //override the abstract method to draw a circle
+    @Override //override the draw method to draw a circle
     public void draw(){
         //sizes for rectangle
         float shapeWidth = sz; //width
