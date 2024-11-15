@@ -10,7 +10,7 @@ import processing.core.*;
 public class Main extends PApplet{
     //Call class
     LinkedList linkedList;
-    Display display;
+    Controls controls;
 
     public static void main(String[] args)  {
         PApplet.main("com.code.Main"); //processing
@@ -24,22 +24,23 @@ public class Main extends PApplet{
     //setup: init
     public void setup(){
         linkedList = new LinkedList();  //init
-        display = new Display(linkedList, this); //init
-        background(0); //black
+        controls = new Controls(linkedList, this); //init
     }
 
     //draw
     public void draw(){
-        display.draw();
+        background(0); //black
+
+        linkedList.drawShapes();
     }
 
     //mousepress
     public void mousePressed(){
-        display.onMousePress();
+        controls.onMousePressed(mouseX, mouseY);
     }
 
     //keypress
     public void keyPressed(){
-        display.onKeyPress();
+        controls.onKeyPressed(key);
     }
 }

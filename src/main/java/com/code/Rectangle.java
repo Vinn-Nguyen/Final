@@ -18,6 +18,7 @@ public class Rectangle extends Shape{
         float shapeWidth = sz; //width
         float shapeHeight = sz * 2; //height
 
+
         main.noStroke(); //no outline
         main.fill(color); //color
         main.rectMode(main.CENTER); //make it so that the shape is drawn in the center mouse's x/y

@@ -7,6 +7,5 @@
 package com.code;
 
 public interface OnMousePress {
-    abstract void onMousePressed();
-    abstract void MousePressed(float mouseX, float mouseY);
+    abstract void onMousePressed(int x, int y);
 }

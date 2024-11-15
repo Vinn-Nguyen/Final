@@ -5,27 +5,27 @@
  */
 package com.code;
 
-public class Display{
+import com.jogamp.opengl.util.packrect.Rect;
+
+public class Controls implements OnMousePress, OnKeyPress{
     Main main; //init processing
     LinkedList list; //init list
-
-    Shape newShape; //creating a new shape
+    Shape newShape;
 
     //BOOLEANS
     boolean CIRCLE_MODE = true; //default is draw circle
     boolean SQUARE_MODE; //draw square
     boolean RECT_MODE; //draw rect
 
-    boolean isUndo;
 
-
-    Display(LinkedList list_, Main main_){
+    Controls(LinkedList list_, Main main_){
         list = list_;
         main = main_;
     }
 
     //Controls what happens when mouse is pressed
-    public void onMousePress(){
+    @Override
+    public void onMousePressed(int x, int y){
         //CONDITIONS
         //create circle
         if(CIRCLE_MODE){
@@ -39,17 +39,15 @@ public class Display{
         else if(RECT_MODE){
             newShape = new Rectangle(main.mouseX, main.mouseY, main);
         }
-
-        //insert node to at the end of the list
         list.insert(newShape);
-        list.print();
     }
 
     //Controls what happen when the key is pressed
-    public void onKeyPress(){
+    @Override
+    public void onKeyPressed(char key){
         //undo button
         if(main.key == 'p'){
-            isUndo = true;
+            undo();
         }
 
         //Q creates Circles
@@ -72,8 +70,10 @@ public class Display{
         }
     }
 
-    //draw the shapes from the list
-    public void draw(){
-        list.drawShapes();
+    //undo
+    void undo(){
+        if(list.getIndex() > 0){ //while the list is greater than 0
+            list.remove(); //remove the latest node
+        }
     }
 }

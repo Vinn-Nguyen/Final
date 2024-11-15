@@ -1,7 +1,7 @@
 /*
  * Wren Nguyen
  * Project: Final
- * Manages the nodes (and their functions) into the linked lists
+ * Manages the nodes (and their functions) and stores the shape info
 */
 
 package com.code;
@@ -17,12 +17,10 @@ public class LinkedList {
         head = null;
     }
 
-     //ISEMPTY: checks if the list is empty
+    //ISEMPTY: checks if the list is empty
     boolean isEmpty(){ 
         return head == null;
     }
-
-    
 
     //INDEX/COUNTER
     public int getIndex(){
@@ -52,32 +50,39 @@ public class LinkedList {
         if(isEmpty()){
             head = node;
         }
+
+        //insert at end
         else{
             ShapeNode current = head; //start at head
             while(current.getNext()!= null){ //traverse the list
                 current = current.getNext(); //go to the next
             }
             current.setNext(node); //set the node
-            index++; //increase the index
         }
+        index++; //increase the index
     }
 
     //delete the last node
-    void undo(Shape shape){
+    void remove(){
         //if its empty return "List is empty."
-        if(isEmpty() && isUndo == true){
+        if(isEmpty()){
             System.out.println("List is empty.");
         }
-        else if(isUndo == true){
-        ShapeNode current = head; //start at the head
-        ShapeNode previous = null; //init previous
-        while(current.getNext() != null){ //traverse the list
-            previous = current; //store current into previous
-            current = current.getNext(); //go to the next node
+
+        //if there's only one shape
+        if(head.getNext() == null){
+            head = null;
+            return;
         }
-        previous.setNext(current.getNext()); //replace the previous with the current
-        index--;
+        else {
+            ShapeNode current = head; //start at the head
+            while (current.getNext() != null && 
+            current.getNext().getNext() != null){ //traverse list to the second to last node
+                current = current.getNext(); //find node
+            }
+            current.setNext(null); //remove node
         }
+        index--; //decrease index
     }
 
     //draw
@@ -88,5 +93,4 @@ public class LinkedList {
             current = current.getNext(); //go to the next one
         }
     }
-
 }

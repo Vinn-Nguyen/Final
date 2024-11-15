@@ -8,6 +8,5 @@
 package com.code;
 
 public interface OnKeyPress {
-    abstract void onKeyPressed();
-    abstract void KeyPressed();
+    abstract void onKeyPressed(char key);
 }

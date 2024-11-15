@@ -7,7 +7,6 @@
 package com.code;
 
 public class Circle extends Shape {
-
     Circle(float x, float y, Main main_){
         super(x, y, main_); //call the superclass
     }
