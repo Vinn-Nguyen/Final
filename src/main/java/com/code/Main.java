@@ -7,40 +7,36 @@
 package com.code;
 import processing.core.*;
 
-public class Main extends PApplet{
-    //Call class
+public class Main extends PApplet {
+    //call classes
     LinkedList linkedList;
     Controls controls;
 
-    public static void main(String[] args)  {
-        PApplet.main("com.code.Main"); //processing
+    public static void main(String[] args) {
+        PApplet.main("com.code.Main");
     }
 
-    //settings
-    public void settings(){
-        fullScreen(); //fullscreex
+    public void settings() {
+        fullScreen(); //fullscreen
     }
 
-    //setup: init
-    public void setup(){
-        linkedList = new LinkedList();  //init
-        controls = new Controls(linkedList, this); //init
+    public void setup() {
+        //init
+        linkedList = new LinkedList(this);  
+        controls = new Controls(linkedList, this);
     }
 
-    //draw
-    public void draw(){
+    public void draw() {
         background(0); //black
-
-        linkedList.drawShapes();
+        linkedList.drawShapes(); //draw the shapes
+        linkedList.display(); //display the counter
     }
 
-    //mousepress
-    public void mousePressed(){
-        controls.onMousePressed(mouseX, mouseY);
+    public void mousePressed() {
+        controls.onMousePressed(mouseX, mouseY); //implement mouse controls
     }
 
-    //keypress
-    public void keyPressed(){
-        controls.onKeyPressed(key);
+    public void keyPressed() {
+        controls.onKeyPressed(key); //implements key controls
     }
 }

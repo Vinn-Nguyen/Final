@@ -1,8 +1,7 @@
 /*
  * Wren Nguyen
  * Project: Final
- * Allows the switches to turn on/off depending on the key pressed. this is a placeholder 
- * class for now
+ * Handles what happens when key is pressed
  */
 
 package com.code;

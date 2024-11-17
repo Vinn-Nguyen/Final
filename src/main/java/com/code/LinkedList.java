@@ -8,89 +8,108 @@ package com.code;
 
 public class LinkedList {
     //VARIABLES
-    public int index = 0; //counter
-    public ShapeNode head; //head of the list
+    ShapeNode head; //head of the list
+    Counter counter;
+    boolean isUndo = false; //whether or not to undo
 
-    boolean isUndo = false;
-
-    public LinkedList(){
+    LinkedList(Main main){
         head = null;
+        counter = new Counter(main);
     }
 
     //ISEMPTY: checks if the list is empty
-    boolean isEmpty(){ 
+    boolean isEmpty() {
         return head == null;
     }
 
-    //INDEX/COUNTER
-    public int getIndex(){
-        return index;
-    }
-
-    //PRINT: print the index
+    //PRINT: print the index (for)
     public void print(){
         //if the list empty, return list is empty.
-        if(isEmpty())
+        if(isEmpty()){
             System.out.println("List is empty.");
-        
+        }
+
         ShapeNode current = head; //start at the head
         while (current != null){ //traverse through the list until the end
             current = current.getNext(); //go to the next one
         }
-        System.out.println(index); //print nodes
-
+        System.out.println(counter.getIndex()); //print nodes
     }
 
     //INSERT: All shapes will be APPENDED (inserted at the end)
-    public void insert (Shape shape){
-        //creating a new node
+    public void insert(Shape shape) {
         ShapeNode node = new ShapeNode(shape);
 
-        //if its empty, insert at head
-        if(isEmpty()){
+        // if it's empty, insert at head
+        if (isEmpty()) {
             head = node;
-        }
-
-        //insert at end
-        else{
-            ShapeNode current = head; //start at head
-            while(current.getNext()!= null){ //traverse the list
-                current = current.getNext(); //go to the next
-            }
-            current.setNext(node); //set the node
-        }
-        index++; //increase the index
-    }
-
-    //delete the last node
-    void remove(){
-        //if its empty return "List is empty."
-        if(isEmpty()){
-            System.out.println("List is empty.");
-        }
-
-        //if there's only one shape
-        if(head.getNext() == null){
-            head = null;
-            return;
-        }
+        } 
+        
+        //insert
         else {
             ShapeNode current = head; //start at the head
-            while (current.getNext() != null && 
-            current.getNext().getNext() != null){ //traverse list to the second to last node
-                current = current.getNext(); //find node
+            while (current.getNext() != null) { //traverse the listt
+                current = current.getNext(); //go to next node
             }
-            current.setNext(null); //remove node
+            current.setNext(node); //insert node
         }
-        index--; //decrease index
+        counter.add(); //increase counter
     }
 
-    //draw
-    void drawShapes(){
-        ShapeNode current = head; //start at the head
-        while(current != null){ //traverse the list
-            current.shape.draw(); //draw the current shape
-            current = current.getNext(); //go to the next one
+    //REMOVE: delete the last node
+    public void remove() {
+        // if it's empty, return list is empty
+        if (isEmpty()) {
+            System.out.println("List is empty.");
+            return;
         }
+
+        // If there's only one node present
+        if (head.getNext() == null) {
+            head = null;
+        }
+        
+        //remove the last node at the end of the list
+        else {
+            ShapeNode current = head; //start at the head
+            while (current.getNext() != null && current.getNext().getNext() != null) {
+                current = current.getNext(); // Traverse to the second to last node
+            }
+            current.setNext(null); // Remove node
+        }
+        counter.subtract(); //decrease counter
+    }
+
+    //DRAWSHAPES: draw all shapes
+    public void drawShapes() {
+        ShapeNode current = head; //start at the head
+        while (current != null) { //traverse the list
+            current.shape.draw(); //draw the shape
+            current = current.getNext(); //move to the next
+        }
+    }
+
+    //CLEAR: delete everything and reset counter
+    public void clear() {
+        head = null;
+        counter.reset();
+    }
+
+
+    
+    //COUNTER METHODS
+    //check index
+    public int getIndex() {
+        return counter.getIndex();
+    }
+
+    //toggle the counter
+    public void toggleCounter(){
+        counter.toggle();
+    }
+
+    //display the counter
+    public void display() {
+        counter.draw();
     }
 }

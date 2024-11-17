@@ -1,7 +1,7 @@
 /*
  * Wren Nguyen
  * Project: Final
- * Allows the buttons to be pressed using mouse. this is a place holder class for now.
+ * Handles what happens when the mouse is pressed
  */
 
 package com.code;

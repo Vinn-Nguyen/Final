@@ -17,17 +17,14 @@ public abstract class Shape {
         this.x = x;
         this.y = y;
 
-        //red, blue, green, transparency
+        //randomize red, blue, green, transparency varibles
         this.color = main.color(main.random(255), main.random(255), main.random(255), main.random(255));
-        this.sz = main.random(10, 150);
+        //random size
+        this.sz = main.random(10, 150); 
     }
 
     public abstract void draw();
 
-    //set the position of the shapes
-    void setPosition(float x, float y){
-        this.x = x;
-        this.y = y;
-    }
+    
 
 }
