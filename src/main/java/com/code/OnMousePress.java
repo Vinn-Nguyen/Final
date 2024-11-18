@@ -2,7 +2,7 @@
  * Wren Nguyen
  * Project: Final
  * Handles what happens when the mouse is pressed
- */
+*/
 
 package com.code;
 

@@ -7,12 +7,14 @@
 package com.code;
 
 public class LinkedList {
-    //VARIABLES
-    ShapeNode head; //head of the list
+    Main main;
     Counter counter;
-    boolean isUndo = false; //whether or not to undo
 
-    LinkedList(Main main){
+    ShapeNode head; //head of the list
+    boolean isUndo = false; //when to undo
+
+    LinkedList(Main main_){
+        main = main_;
         head = null;
         counter = new Counter(main);
     }
@@ -22,7 +24,7 @@ public class LinkedList {
         return head == null;
     }
 
-    //PRINT: print the index (for)
+    //PRINT: print the index (for testing)
     public void print(){
         //if the list empty, return list is empty.
         if(isEmpty()){
@@ -64,7 +66,7 @@ public class LinkedList {
             return;
         }
 
-        // If there's only one node present
+        // delete if there's only one node present
         if (head.getNext() == null) {
             head = null;
         }
@@ -72,10 +74,10 @@ public class LinkedList {
         //remove the last node at the end of the list
         else {
             ShapeNode current = head; //start at the head
-            while (current.getNext() != null && current.getNext().getNext() != null) {
-                current = current.getNext(); // Traverse to the second to last node
+            while (current.getNext() != null && current.getNext().getNext() != null) { //traverse to the second to last node
+                current = current.getNext(); //go to the next node
             }
-            current.setNext(null); // Remove node
+            current.setNext(null); //remove node
         }
         counter.subtract(); //decrease counter
     }
@@ -85,20 +87,19 @@ public class LinkedList {
         ShapeNode current = head; //start at the head
         while (current != null) { //traverse the list
             current.shape.draw(); //draw the shape
-            current = current.getNext(); //move to the next
+            current = current.getNext(); //move to the next node
         }
     }
 
     //CLEAR: delete everything and reset counter
     public void clear() {
-        head = null;
-        counter.reset();
+        head = null; //clear list
+        counter.reset(); //reset counter
     }
-
 
     
     //COUNTER METHODS
-    //check index
+    //get index
     public int getIndex() {
         return counter.getIndex();
     }

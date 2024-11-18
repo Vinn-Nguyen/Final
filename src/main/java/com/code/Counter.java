@@ -1,7 +1,8 @@
 /*
  * Wren Nguyen
  * Project: Final
- * Counter keep tracks of how many shapes are present on screen. Is toggleable.
+ * Counter keep tracks of how many impressions are present on screen. 
+ * Is toggleable as to not interfere with the piece.
 */
 
 package com.code;
@@ -9,7 +10,7 @@ package com.code;
 public class Counter {
     Main main;
     int index = 0; //set counter to 0
-    boolean show = false;
+    boolean show = false; //show/hide counter
     
     Counter(Main main_) {
         main = main_;
@@ -27,7 +28,7 @@ public class Counter {
         }
     }
 
-    //check what the current index is
+    //get index
     public int getIndex() {
         return index;
     }
@@ -37,7 +38,7 @@ public class Counter {
         index = 0;
     }
 
-    //makes show toggleable
+    //makes counter toggleable
     public void toggle(){
         show = !show;
     }
@@ -47,7 +48,7 @@ public class Counter {
         return show;
     }
 
-    // Draw the counter
+    //draw counter
     public void draw() {
         int textSz = 40; //text size
         int counterX = 20; //position of counter's x
@@ -57,7 +58,7 @@ public class Counter {
         if(show) {
             main.fill(255); //white
             main.textSize(textSz);
-            main.text("Shapes: " + index, counterX, counterY);
+            main.text("Impressions - " + index, counterX, counterY);
         }
     }
 }

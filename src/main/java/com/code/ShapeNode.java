@@ -1,7 +1,7 @@
 /*
  * Wren Nguyen
  * Project: Final
- * Description: ShapeNode class that contain the all the getter/setters info for linked lists
+ * Description: ShapeNode class contains all the getter/setters info for linked lists
  */
 
 package com.code;

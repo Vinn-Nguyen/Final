@@ -7,15 +7,15 @@
 package com.code;
 
 public class Circle extends Shape {
-    Circle(float x, float y, Main main_){
-        super(x, y, main_); //call the superclass
+    public Circle(float x, float y, Main main) {
+        super(x, y, main); //call superclass
     }
 
-    @Override //override the draw method to draw a circle
-    public void draw(){
-        main.noStroke(); //no outline
+    @Override //draws circle
+    public void draw() {
+        move();  //moves if needed
         main.fill(color); //fill
-        main.ellipseMode(main.CENTER); //draw the circle in the center of the x/y
-        main.ellipse(x, y, sz, sz); //draws circle
+        main.noStroke(); //no outline
+        main.ellipse(x, y, sz, sz);
     }
 }

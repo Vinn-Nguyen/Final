@@ -3,11 +3,12 @@
  * Project: Final
  * Controls what happens when certain keys are pressed and when the mouse is pressed.
  * 
- * Mouse Press: draws shape (add node to list)
+ * Mouse Presses: draws shape (add node to list)
  * 
- * Key Press:
- * Shape Modes: 1 circle, 2 oval, 3 square, 4 rectangle, 5 triangle
- * - undo, c clears screen, v toggles counter visibility
+ * Key Presses:
+ * Shape Modes: '1' circle, '2' oval, '3' square, '4' rectangle, '5' triangle
+ * Commands: '-'' undo, ';' clears screen, 'v' toggles counter visibility
+ * Overlays: 'c' cyan overlay, 'm' magenta overlay, 'y' yellow overlay, 'k' no overlay
 */
 
 package com.code;
@@ -18,6 +19,8 @@ public class Controls implements OnMousePress, OnKeyPress {
     LinkedList list;
     Counter counter;
     Shape newShape;
+
+    Overlay applyOverlay = null; //default overlay is none
 
     //shape modes
     boolean CIRCLE_MODE = true; // default is draw circle
@@ -31,26 +34,26 @@ public class Controls implements OnMousePress, OnKeyPress {
         main = main_;
     }
  
-    @Override //override the mouse interface to control what happens when the mouse is pressed
+    @Override //override to control the mouse pressed
     public void onMousePressed(int x, int y) {
         //draw circle
         if (CIRCLE_MODE) {
             newShape = new Circle(main.mouseX, main.mouseY, main);
         } 
         //draw square
-        else if (SQUARE_MODE) {
+        if (SQUARE_MODE) {
             newShape = new Square(main.mouseX, main.mouseY, main);
         }
         //draw rectangle
-        else if (RECT_MODE) {
+        if (RECT_MODE) {
             newShape = new Rectangle(main.mouseX, main.mouseY, main);
         }
         //draw oval
-        else if (OVAL_MODE) {
+        if (OVAL_MODE) {
             newShape = new Oval(main.mouseX, main.mouseY, main);
         }
         //draw trinagle
-        else if (TRI_MODE) {
+        if (TRI_MODE) {
             newShape = new Triangle(main.mouseX, main.mouseY, main);
         }
 
@@ -58,25 +61,44 @@ public class Controls implements OnMousePress, OnKeyPress {
         list.insert(newShape); 
     }
 
-    
-    @Override //override the key interface to controls what happens when the key is pressed
+    @Override //override the keys to controls the key is pressed
     public void onKeyPressed(char key) {
         // - is undo
         if (main.key == '-') {
             undo();
         } 
-        // c is clear the screen and resets counter
-        else if (main.key == 'c') {
+        // ; is clear the screen and resets counter
+        else if (main.key == ';') {
             list.clear();
         }
-        //v toggles the counter visibility
+        // v toggles the counter visibility
         else if(main.key == 'v'){
             list.toggleCounter();
         }
 
+
+        //OVERLAYS
+        // c toggles cyan overlay
+        if (main.key == 'c') {
+            applyOverlay = new CyanOverlay(main); 
+        }
+        // m toggles magenta overlay
+        if (main.key == 'm'){
+            applyOverlay = new MagentaOverlay(main);
+        }
+        // y toggles yellow overlay
+        if (main.key == 'y') {
+            applyOverlay = new YellowOverlay(main); 
+        }
+        // k is no overlay
+        if (main.key == 'k') {
+            applyOverlay = null;
+        }
+
+
         //SHAPE MODES
         // 1 creates Circles
-        else if (main.key == '1') {
+        if (main.key == '1') {
             CIRCLE_MODE = true; // turn on
             OVAL_MODE = false; // turn off
             SQUARE_MODE = false; // turn off
@@ -92,7 +114,7 @@ public class Controls implements OnMousePress, OnKeyPress {
             TRI_MODE = false; // turn off
         }
         // 3 creates Squares
-        else if (main.key == '3') {
+        if (main.key == '3') {
             CIRCLE_MODE = false; // turn off
             OVAL_MODE = false; // turn off
             SQUARE_MODE = true; // turn on
@@ -100,7 +122,7 @@ public class Controls implements OnMousePress, OnKeyPress {
             TRI_MODE = false; // turn off
         } 
         // 4 creates Rectangles
-        else if (main.key == '4') {
+        if (main.key == '4') {
             CIRCLE_MODE = false; // turn off
             OVAL_MODE = false; // turn off
             SQUARE_MODE = false; // turn off
@@ -108,7 +130,7 @@ public class Controls implements OnMousePress, OnKeyPress {
             TRI_MODE = false; // turn off
         }
         // 5 creates Triangles
-        else if (main.key == '5') {
+        if (main.key == '5') {
             CIRCLE_MODE = false; // turn off
             OVAL_MODE = false; // turn off
             SQUARE_MODE = false; // turn off
@@ -118,7 +140,7 @@ public class Controls implements OnMousePress, OnKeyPress {
     }
 
     //Removes the last drawn shape
-    void undo() {
+    void undo(){
         if (list.getIndex() > 0) {
             list.remove(); //remove node
         }

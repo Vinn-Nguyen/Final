@@ -2,7 +2,7 @@
  * Wren Nguyen
  * Project: Final
  * Handles what happens when key is pressed
- */
+*/
 
 package com.code;
 

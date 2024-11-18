@@ -1,23 +1,23 @@
 /*
  * Wren Nguyen
  * Project: Final
- * Main class that activates everything
+ * Main class that ties everything together
  */
 
 package com.code;
 import processing.core.*;
 
 public class Main extends PApplet {
-    //call classes
+    //Call classes
     LinkedList linkedList;
     Controls controls;
 
     public static void main(String[] args) {
-        PApplet.main("com.code.Main");
+        PApplet.main("com.code.Main"); //processing
     }
 
     public void settings() {
-        fullScreen(); //fullscreen
+        fullScreen(); //fullscreen display
     }
 
     public void setup() {
@@ -27,16 +27,22 @@ public class Main extends PApplet {
     }
 
     public void draw() {
-        background(0); //black
-        linkedList.drawShapes(); //draw the shapes
-        linkedList.display(); //display the counter
+        background(0); //black backgriund
+        linkedList.drawShapes();  //draw shapes
+
+        //applies overlay
+        if (controls.applyOverlay != null) { //if there's an overlay
+            controls.applyOverlay.apply(); //draw overlay
+        }
+        
+        linkedList.display();  //display counter
     }
 
     public void mousePressed() {
-        controls.onMousePressed(mouseX, mouseY); //implement mouse controls
+        controls.onMousePressed(mouseX, mouseY); //mouse controls
     }
 
     public void keyPressed() {
-        controls.onKeyPressed(key); //implements key controls
+        controls.onKeyPressed(key); //key controls
     }
 }

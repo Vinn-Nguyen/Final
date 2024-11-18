@@ -19,8 +19,9 @@ public class Rectangle extends Shape{
 
     @Override //override the draw method to draw a circle
     public void draw(){
+        move(); //moves if able
         main.noStroke(); //no outline
-        main.fill(color); //color
+        main.fill(color); //fill
         main.rectMode(main.CENTER); //make it so that the shape is drawn in the center mouse's x/y
         main.rect(x, y, shapeWidth, shapeHeight); //draws circle
     }
