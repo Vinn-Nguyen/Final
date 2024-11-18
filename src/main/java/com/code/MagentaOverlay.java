@@ -24,4 +24,3 @@ public class MagentaOverlay extends Overlay {
         main.rect(main.width/2, main.height/2, main.width, main.height); //fullscreen overlay
     }
 }
-

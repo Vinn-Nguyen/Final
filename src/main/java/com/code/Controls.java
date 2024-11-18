@@ -20,6 +20,7 @@ public class Controls implements OnMousePress, OnKeyPress {
     LinkedList list;
     Counter counter;
     Shape newShape;
+    Screenshot screenshot;
 
     //shape modes
     boolean CIRCLE_MODE = true; // default is draw circle
@@ -34,6 +35,7 @@ public class Controls implements OnMousePress, OnKeyPress {
     Controls(LinkedList list_, Main main_) {
         list = list_;
         main = main_;
+        screenshot = new Screenshot(main);
     }
  
     @Override //override to control the mouse pressed
@@ -68,6 +70,7 @@ public class Controls implements OnMousePress, OnKeyPress {
 
     @Override //override the keys to controls the key is pressed
     public void onKeyPressed(char key) {
+        //COMMANDS
         // - is undo
         if (main.key == '-') {
             undo();
@@ -79,6 +82,10 @@ public class Controls implements OnMousePress, OnKeyPress {
         // v toggles the counter visibility
         if(main.key == 'v'){
             list.toggleCounter();
+        }
+        // s screenshots
+        if(main.key == 's'){
+            screenshot.save("/Users/vinnnguyen/Documents/screenshots/Screenshot-####.png");
         }
 
 

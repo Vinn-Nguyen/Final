@@ -21,6 +21,7 @@ public class Main extends PApplet {
     }
 
     public void setup() {
+        frameRate(30);
         //init
         linkedList = new LinkedList(this);  
         controls = new Controls(linkedList, this);
