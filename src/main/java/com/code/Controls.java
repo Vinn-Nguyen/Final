@@ -6,7 +6,8 @@
  * Mouse Presses: draws shape (add node to list)
  * 
  * Key Presses:
- * Shape Modes: '1' circle, '2' oval, '3' square, '4' rectangle, '5' triangle
+ * '0' determines whether the shape can move or is drawn static
+ * Shape Modes:'1' circle, '2' oval, '3' square, '4' rectangle, '5' triangle
  * Commands: '-'' undo, ';' clears screen, 'v' toggles counter visibility
  * Overlays: 'c' cyan overlay, 'm' magenta overlay, 'y' yellow overlay, 'k' no overlay
 */
@@ -20,14 +21,15 @@ public class Controls implements OnMousePress, OnKeyPress {
     Counter counter;
     Shape newShape;
 
-    Overlay applyOverlay = null; //default overlay is none
-
     //shape modes
     boolean CIRCLE_MODE = true; // default is draw circle
     boolean OVAL_MODE; // draw oval
     boolean SQUARE_MODE; // draw square
     boolean RECT_MODE; // draw rect
     boolean TRI_MODE; // draw triangle
+
+    Overlay applyOverlay = null; //default overlay is none
+    boolean DYNAMIC = false; //determines whether the shape is static or dynamic; default is static
 
     Controls(LinkedList list_, Main main_) {
         list = list_;
@@ -56,7 +58,10 @@ public class Controls implements OnMousePress, OnKeyPress {
         if (TRI_MODE) {
             newShape = new Triangle(main.mouseX, main.mouseY, main);
         }
-
+        //determines whether or not the shape is static or dynamic
+        if (DYNAMIC) {
+            newShape.canMove();
+        }
         //insert node at the end of the list
         list.insert(newShape); 
     }
@@ -68,11 +73,11 @@ public class Controls implements OnMousePress, OnKeyPress {
             undo();
         } 
         // ; is clear the screen and resets counter
-        else if (main.key == ';') {
+        if (main.key == ';') {
             list.clear();
         }
         // v toggles the counter visibility
-        else if(main.key == 'v'){
+        if(main.key == 'v'){
             list.toggleCounter();
         }
 
@@ -97,6 +102,10 @@ public class Controls implements OnMousePress, OnKeyPress {
 
 
         //SHAPE MODES
+        // 0 toggles whether or not the shapes can move
+        if (main.key == '0') { 
+            DYNAMIC = !DYNAMIC;
+        }
         // 1 creates Circles
         if (main.key == '1') {
             CIRCLE_MODE = true; // turn on

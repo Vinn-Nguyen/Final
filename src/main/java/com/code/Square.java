@@ -6,6 +6,8 @@
 
 package com.code;
 
+import processing.core.PConstants;
+
 public class Square extends Shape{
     Square(float x, float y, Main main_){
         super(x, y, main_); //call superclass
@@ -16,7 +18,7 @@ public class Square extends Shape{
         move(); //move
         main.noStroke(); //no outline
         main.fill(color); //fill
-        main.rectMode(main.CENTER); //make it so that the shape is drawn in the center
+        main.rectMode(PConstants.CENTER); //make it so that the shape is drawn in the center
         main.rect(x, y, sz, sz); //draws circle
     }
 }

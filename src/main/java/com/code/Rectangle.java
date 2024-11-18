@@ -6,6 +6,8 @@
 
 package com.code;
 
+import processing.core.PConstants;
+
 public class Rectangle extends Shape{
     //sizes for rectangle
     float shapeWidth = main.random(10, 150); //width
@@ -22,7 +24,7 @@ public class Rectangle extends Shape{
         move(); //moves if able
         main.noStroke(); //no outline
         main.fill(color); //fill
-        main.rectMode(main.CENTER); //make it so that the shape is drawn in the center mouse's x/y
+        main.rectMode(PConstants.CENTER); //make it so that the shape is drawn in the center mouse's x/y
         main.rect(x, y, shapeWidth, shapeHeight); //draws circle
     }
 }

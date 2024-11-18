@@ -7,7 +7,6 @@ package com.code;
 
 public abstract class Overlay {
     Main main;
-    int alpha = 50; //sets transparency for layers
 
     Overlay(Main main_){
         main = main_;

@@ -6,7 +6,10 @@
 
 package com.code;
 
+import processing.core.PConstants;
+
 public class CyanOverlay extends Overlay {
+    int alpha = 25; //transparency
     int overlayColor = main.color(0, 225, 255, alpha); //cyan
      
     public CyanOverlay(Main main){
@@ -17,7 +20,7 @@ public class CyanOverlay extends Overlay {
     public void apply(){
         main.noStroke(); //no outline
         main.fill(overlayColor); //overlay
-        main.rectMode(main.CENTER); //draw from the center
+        main.rectMode(PConstants.CENTER); //draw from the center
         main.rect(main.width/2, main.height/2, main.width, main.height); //fullscreen filter
     }
 }

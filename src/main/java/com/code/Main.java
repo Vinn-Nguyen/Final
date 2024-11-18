@@ -2,7 +2,7 @@
  * Wren Nguyen
  * Project: Final
  * Main class that ties everything together
- */
+*/
 
 package com.code;
 import processing.core.*;
@@ -34,7 +34,7 @@ public class Main extends PApplet {
         if (controls.applyOverlay != null) { //if there's an overlay
             controls.applyOverlay.apply(); //draw overlay
         }
-        
+
         linkedList.display();  //display counter
     }
 

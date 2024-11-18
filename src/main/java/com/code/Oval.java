@@ -7,7 +7,7 @@
 package com.code;
 
 public class Oval extends Shape{
-    //VARIABLES
+    //oval variables
     float ovalWidth; //width
     float ovalHeight; //height
 
