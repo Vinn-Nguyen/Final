@@ -5,7 +5,6 @@
 */
 
 package com.code;
-
 import processing.core.PConstants;
 
 public class YellowOverlay extends Overlay {
@@ -13,7 +12,7 @@ public class YellowOverlay extends Overlay {
     int overlayColor = main.color(255, 225, 0, alpha); //yellow
 
     public YellowOverlay(Main main){
-        super(main);
+        super(main); //superclass
     }
 
     @Override //applies yellow overlay

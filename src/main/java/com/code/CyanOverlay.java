@@ -5,7 +5,6 @@
 */
 
 package com.code;
-
 import processing.core.PConstants;
 
 public class CyanOverlay extends Overlay {
@@ -21,6 +20,6 @@ public class CyanOverlay extends Overlay {
         main.noStroke(); //no outline
         main.fill(overlayColor); //overlay
         main.rectMode(PConstants.CENTER); //draw from the center
-        main.rect(main.width/2, main.height/2, main.width, main.height); //fullscreen filter
+        main.rect(main.width/2, main.height/2, main.width, main.height); //fullscreen overlay
     }
 }

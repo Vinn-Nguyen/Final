@@ -58,7 +58,7 @@ public class Counter {
         if(show) {
             main.fill(255); //white
             main.textSize(textSz);
-            main.text("Impressions - " + index, counterX, counterY);
+            main.text("Impressions - " + index, counterX, counterY); //text display
         }
     }
 }

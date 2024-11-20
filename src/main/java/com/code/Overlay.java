@@ -3,6 +3,7 @@
  * Project: Final
  * Parent class for other overlays classes
 */
+
 package com.code;
 
 public abstract class Overlay {
@@ -12,5 +13,5 @@ public abstract class Overlay {
         main = main_;
     }
 
-    public abstract void apply();
+    public abstract void apply(); //apply overlay
 }

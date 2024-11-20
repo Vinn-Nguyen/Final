@@ -13,17 +13,19 @@ public class Triangle extends Shape{
 
     @Override //override the draw method to draw a triangle
     public void draw(){
-        //triangle varibles
-        float x1 = x - sz;
-        float x2 = x + sz;
-        float x3 = x;
-        float y1 = y + sz;
-        float y2 = y + sz;
-        float y3 = y - sz;
+        float newSz = sz/2; //makes the triangle more decently sized
 
+        //triangle varibles
+        float x1 = x - newSz;
+        float x2 = x + newSz;
+        float x3 = x;
+        float y1 = y + newSz;
+        float y2 = y + newSz;
+        float y3 = y - newSz;
+
+        fadeInAndDraw(); //fades in and draws shape
         move(); //moves if able
         main.noStroke(); //no outline
-        main.fill(color); //fill
         main.triangle(x1, y1, x2, y2, x3, y3); //draw triangle
     }
 }

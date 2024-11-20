@@ -17,11 +17,11 @@ public class Oval extends Shape{
         this.ovalHeight = main.random(10,150); //random height
     }
 
-    @Override //override the draw method to draw a triangle
+    @Override //override the draw method to draw a oval
     public void draw(){
+        fadeInAndDraw(); //fades in and draws shape
         move(); //moves when able
         main.noStroke(); //no outline
-        main.fill(color); //fill
         main.ellipse(x, y, ovalWidth, ovalHeight); //draws oval
     }
 }

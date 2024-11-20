@@ -15,10 +15,10 @@ public class Square extends Shape{
 
     @Override //override the draw method to draw a square
     public void draw(){
-        move(); //move
+        fadeInAndDraw(); //fades in and draws shape
+        move(); //moves if able
         main.noStroke(); //no outline
-        main.fill(color); //fill
         main.rectMode(PConstants.CENTER); //make it so that the shape is drawn in the center
-        main.rect(x, y, sz, sz); //draws circle
+        main.rect(x, y, sz, sz); //draws square
     }
 }

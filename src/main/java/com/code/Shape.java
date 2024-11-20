@@ -7,7 +7,6 @@
 package com.code;
 
 public abstract class Shape {
-    //call classes
     Main main;
     Overlay overlay;
 
@@ -20,21 +19,30 @@ public abstract class Shape {
     boolean canMove;
     float speedX, speedY;
 
+    //fade in
+    float fade; 
+    double fadeSpeed = 0.15; //speed of fade in
+    int alpha; //transparency
+
     Shape(float x, float y, Main main_) {
         main = main_;
         this.x = x;
         this.y = y;
         this.sz = main.random(10, 150); //size range
         
-        //randomize red, blue, green, transparency varibles
-        this.color = main.color(main.random(255), main.random(255), 
-        main.random(255), main.random(255));
+        //randomize red, blue, green varibles for shape
+        this.color = main.color(main.random(255), main.random(255), main.random(255), 
+        0); //init alpha at 0
+        this.alpha = (int)main.random(255); //randomized the transparency variable
 
         //movement varibles
         this.canMove = false;
         //random speeds
         this.speedX = main.random(-1, 1);
         this.speedY = main.random(-1, 1);
+
+        //fade in varibles
+        this.fade = 0; //init at 0
     }
 
     public abstract void draw();
@@ -48,16 +56,16 @@ public abstract class Shape {
 
             //bounce on the left and right edges of the screen
             if (x <= 0 || x >= main.width) {
-                speedX *= -1;
+                speedX *= -1; //reverse
             }
-            //bounce on the top and bottom of the screen
+            //bounce on the top and bottom edges of the screen
             if (y <= 0 || y >= main.height) {
-                speedY *= -1;
+                speedY *= -1; //revers
             }
         }
     }
 
-    //toggle move
+    //toggle if a shape can/cannot move
     public void canMove() {
         this.canMove = !this.canMove;
     }
@@ -65,5 +73,17 @@ public abstract class Shape {
     //set overlay
     public void setOverlay(Overlay overlay_) {
         overlay = overlay_;
+    }
+
+    //draws the shape and fades in when drawn
+    public void fadeInAndDraw(){
+        //fade in
+        if (fade < 1) {
+            fade += fadeSpeed; //rate of which it fades in
+        }
+        //updating the transparency
+        int curAlpha = (int)(fade * alpha); 
+        //fill of the shape
+        main.fill(main.red(color), main.green(color), main.blue(color), curAlpha);
     }
 }

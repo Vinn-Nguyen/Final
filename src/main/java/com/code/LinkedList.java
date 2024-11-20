@@ -40,7 +40,7 @@ public class LinkedList {
 
     //INSERT: All shapes will be APPENDED (inserted at the end)
     public void insert(Shape shape) {
-        ShapeNode node = new ShapeNode(shape);
+        ShapeNode node = new ShapeNode(shape); //create new node
 
         // if it's empty, insert at head
         if (isEmpty()) {
@@ -62,7 +62,7 @@ public class LinkedList {
     public void remove() {
         // if it's empty, return list is empty
         if (isEmpty()) {
-            System.out.println("List is empty.");
+            System.out.println("List is empty."); //for debugging
             return;
         }
 
@@ -74,7 +74,8 @@ public class LinkedList {
         //remove the last node at the end of the list
         else {
             ShapeNode current = head; //start at the head
-            while (current.getNext() != null && current.getNext().getNext() != null) { //traverse to the second to last node
+            //traverse to the second to last node
+            while (current.getNext() != null && current.getNext().getNext() != null) {
                 current = current.getNext(); //go to the next node
             }
             current.setNext(null); //remove node
