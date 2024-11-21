@@ -98,6 +98,17 @@ public class LinkedList {
         counter.reset(); //reset counter
     }
 
+    public Shape getLastShape(){
+        if (!isEmpty()) {
+            ShapeNode current = head;
+            while (current.getNext() != null) {
+                current = current.getNext();  // Traverse to the last node
+            }
+            return current.shape;  // Return the last shape
+        }
+        return null;  // Return null if the list is empty
+    }
+
     
     //COUNTER METHODS
     //get index

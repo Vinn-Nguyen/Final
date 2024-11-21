@@ -19,11 +19,12 @@ package com.code;
 import processing.core.*;
 import processing.sound.*; //wip
 
-
 public class Main extends PApplet {
     //Call classes
     LinkedList linkedList;
     ControlManager controls;
+
+    //test
     //SoundFile sound;
 
     public static void main(String[] args) {
@@ -43,7 +44,6 @@ public class Main extends PApplet {
 
         //init
         linkedList = new LinkedList(this);  
-        //audio = new Audio(this);
         controls = new ControlManager(linkedList, this);
     }
 
@@ -51,7 +51,7 @@ public class Main extends PApplet {
     public void draw() {
         background(0); //black background
         linkedList.drawShapes(); //draw shapes
-        
+
         //applies overlay
         if (controls.applyOverlay != null) { //if there's an overlay
             controls.applyOverlay.apply(); //draw overlay
