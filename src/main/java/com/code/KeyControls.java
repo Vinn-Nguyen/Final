@@ -26,7 +26,7 @@ public class KeyControls {
         controls = controls_;
     }
 
-    //Removes the last drawn shape
+    //UNDO: removes the last drawn shape
     void undo() {
         if (list.getIndex() > 0) {
             list.remove();

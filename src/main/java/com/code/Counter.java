@@ -9,6 +9,7 @@ package com.code;
 
 public class Counter {
     Main main;
+    
     int index = 0; //set counter to 0
     boolean show = false; //show/hide counter
     
@@ -16,34 +17,34 @@ public class Counter {
         main = main_;
     }
 
-    //add to the counter
+    //ADD: add to the counter
     public void add() {
         index++;
     }
 
-    //subtract from the counter
+    //SUBTRACT: subtract from the counter
     public void subtract() {
         if (index > 0) { //ensures the counter doesnt break
             index--;
         }
     }
 
-    //get index
+    //GETINDEX: get index
     public int getIndex() {
         return index;
     }
 
-    //reset the counter to 0
+    //RESET: reset the counter to 0
     public void reset() {
         index = 0;
     }
 
-    //makes counter toggleable
+    //TOGGLE: makes counter toggleable
     public void toggle(){
         show = !show;
     }
 
-    //switches the boolean
+    //SHOW: switches the boolean
     public boolean show() {
         return show;
     }

@@ -1,7 +1,7 @@
 /*
  * Wren Nguyen
  * Project: Final
- * Inherits from Shape to draw an oval
+ * Inherits from Shape to draw an oval.
 */
 
 package com.code;

@@ -1,10 +1,11 @@
 /*
  * Wren Nguyen
  * Project: Final
- * Inherits from Shape to draw a rectangle
+ * Inherits from Shape to draw a rectangle.
 */
 
 package com.code;
+
 import processing.core.PConstants;
 
 public class Rectangle extends Shape{

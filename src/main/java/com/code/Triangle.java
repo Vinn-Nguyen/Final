@@ -13,7 +13,7 @@ public class Triangle extends Shape{
 
     @Override //override the draw method to draw a triangle
     public void draw(){
-        float newSz = sz/2; //makes the triangle more decently sized
+        float newSz = sz/2; //makes the triangle more accurately sized
 
         //triangle varibles
         float x1 = x - newSz;

@@ -2,11 +2,12 @@
  * Wren Nguyen
  * Project: Final
  * Class that takes a screenshot of the frame on screen
- */
+*/
 
 package com.code;
 
 public class Screenshot {
+    //init
     Main main;
 
     Screenshot(Main main_){

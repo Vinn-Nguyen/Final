@@ -1,12 +1,13 @@
 /* 
  * Wren Nguyen
  * Project: Final
- * On mouse press, draws a shape and adds the ShapeNode to the linked list
+ * On mouse press, draws a shape and adds the ShapeNode to the linked list.
 */
 
 package com.code;
 
 public class MouseControls {
+    //init
     Main main;
     LinkedList list;
     ControlManager controls;

@@ -7,6 +7,7 @@
 package com.code;
 
 public abstract class Overlay {
+    //init
     Main main;
 
     Overlay(Main main_){

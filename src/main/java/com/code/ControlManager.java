@@ -1,7 +1,7 @@
 /*
  * Wren Nguyen
  * Project: Final
- * ControlManager manages KeyControls and MouseControls. Sets different modes
+ * ControlManager manages KeyControls and MouseControls. Sets different shape modes.
 */
 
 package com.code;

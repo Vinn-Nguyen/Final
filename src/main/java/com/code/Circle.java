@@ -14,8 +14,8 @@ public class Circle extends Shape {
     @Override //draws circle
     public void draw() {
         fadeInAndDraw(); //fades in and draws shape
-        move();  //moves if needed
+        move(); //moves if needed
         main.noStroke(); //no outline
-        main.ellipse(x, y, sz, sz);
+        main.ellipse(x, y, sz, sz); //circle parameters
     }
 }

@@ -15,12 +15,16 @@
 */
 
 package com.code;
+
 import processing.core.*;
+import processing.sound.*; //wip
+
 
 public class Main extends PApplet {
     //Call classes
     LinkedList linkedList;
     ControlManager controls;
+    //SoundFile sound;
 
     public static void main(String[] args) {
         PApplet.main("com.code.Main"); //processing
@@ -33,10 +37,13 @@ public class Main extends PApplet {
 
     //setup
     public void setup() {
+        //sound = new SoundFile(this, "/Users/vinnnguyen/final/data/circle.mp3");
+
         frameRate(30); //controls the framerate so the program will run smoother
-        
+
         //init
         linkedList = new LinkedList(this);  
+        //audio = new Audio(this);
         controls = new ControlManager(linkedList, this);
     }
 
@@ -55,6 +62,7 @@ public class Main extends PApplet {
 
     //mouse controls
     public void mousePressed() {
+        //sound.play();
         controls.onMousePressed(mouseX, mouseY);
     }
 

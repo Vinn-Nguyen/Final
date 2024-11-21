@@ -13,7 +13,7 @@ public class MagentaOverlay extends Overlay {
     int overlayColor = main.color(255, 0, 255, alpha); //magenta
 
     public MagentaOverlay(Main main){
-        super(main);
+        super(main); //call superclass
     }
 
     @Override //applies magenta
