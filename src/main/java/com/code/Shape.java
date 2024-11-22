@@ -7,6 +7,7 @@
 package com.code;
 
 public abstract class Shape {
+    //init
     Main main;
     Overlay overlay;
 
@@ -81,8 +82,10 @@ public abstract class Shape {
         if (fade < 1) {
             fade += fadeSpeed; //rate of which it fades in
         }
+        
         //updating the transparency
         int curAlpha = (int)(fade * alpha); 
+
         //fill of the shape
         main.fill(main.red(color), main.green(color), main.blue(color), curAlpha);
     }

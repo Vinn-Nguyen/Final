@@ -9,6 +9,7 @@ package com.code;
 import processing.core.PConstants;
 
 public class MagentaOverlay extends Overlay {
+    //variables
     int alpha = 25; //transparency
     int overlayColor = main.color(255, 0, 255, alpha); //magenta
 

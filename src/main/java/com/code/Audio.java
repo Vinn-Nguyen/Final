@@ -17,10 +17,28 @@ public class Audio {
     SoundFile triangleSE;
 
     Audio(Main main){
-        circleSE = new SoundFile(main, "/Users/vinnnguyen/final/data/circle.mp3");
-        ovalSE = new SoundFile(main, "/Users/vinnnguyen/final/data/oval.mp3");
-        rectangleSE = new SoundFile(main, "/Users/vinnnguyen/final/data/rectangle.mp3");
-        squareSE = new SoundFile(main, "/Users/vinnnguyen/final/data/square.mp3");
-        triangleSE = new SoundFile(main, "/Users/vinnnguyen/final/data/triangle.mp3");
+        circleSE = new SoundFile(main, "/Users/vinnnguyen/final/data/circle.wav");
+        ovalSE = new SoundFile(main, "/Users/vinnnguyen/final/data/oval.wav");
+        rectangleSE = new SoundFile(main, "/Users/vinnnguyen/final/data/rectangle.wav");
+        squareSE = new SoundFile(main, "/Users/vinnnguyen/final/data/square.wav");
+        triangleSE = new SoundFile(main, "/Users/vinnnguyen/final/data/triangle.wav");
+    }
+
+    public void playSE(String mode){
+        if(mode.equals("CIRCLE")){
+            circleSE.play();
+        }
+        if(mode.equals("OVAL")){
+            ovalSE.play();
+        }
+        if(mode.equals("RECT")){
+            rectangleSE.play();
+        }
+        if(mode.equals("SQUARE")){
+            squareSE.play();
+        }
+        if(mode.equals("TRIANGLE")){
+            triangleSE.play();
+        }
     }
 }

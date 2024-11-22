@@ -7,10 +7,12 @@
 package com.code;
 
 public class LinkedList {
+    //init
     Main main;
     Counter counter;
 
     ShapeNode head; //head of the list
+    
     boolean isUndo = false; //when to undo
 
     LinkedList(Main main_){
@@ -97,19 +99,8 @@ public class LinkedList {
         head = null; //clear list
         counter.reset(); //reset counter
     }
-
-    public Shape getLastShape(){
-        if (!isEmpty()) {
-            ShapeNode current = head;
-            while (current.getNext() != null) {
-                current = current.getNext();  // Traverse to the last node
-            }
-            return current.shape;  // Return the last shape
-        }
-        return null;  // Return null if the list is empty
-    }
-
     
+
     //COUNTER METHODS
     //get index
     public int getIndex() {

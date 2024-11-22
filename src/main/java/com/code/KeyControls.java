@@ -16,6 +16,7 @@
 package com.code;
 
 public class KeyControls {
+    //init
     Main main;
     LinkedList list;
     ControlManager controls;
@@ -55,6 +56,7 @@ public class KeyControls {
             screenshot.save("/Users/vinnnguyen/Documents/screenshots/Screenshot-####.png");
         }
 
+
         //OVERLAYS (operates on cmyk)
         if (key == 'c') {
             controls.applyOverlay = new CyanOverlay(main); 
@@ -68,6 +70,7 @@ public class KeyControls {
         if (key == 'k') {
             controls.applyOverlay = null;
         }
+        
 
         //SHAPE MODES (operates on 0 - 5)
         // 0 toggles whether or not the shapes can move

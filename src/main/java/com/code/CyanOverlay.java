@@ -9,6 +9,7 @@ package com.code;
 import processing.core.PConstants;
 
 public class CyanOverlay extends Overlay {
+    //color varibles
     int alpha = 25; //transparency
     int overlayColor = main.color(0, 225, 255, alpha); //cyan
      

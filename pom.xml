@@ -20,8 +20,8 @@
     </repositories>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -37,11 +37,11 @@
             <version>v2.3.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.jsyn/jsyn -->
-        <dependency>
-            <groupId>com.jsyn</groupId>
-            <artifactId>jsyn</artifactId>
-            <version>20170815</version>
-        </dependency>
+<dependency>
+    <groupId>com.jsyn</groupId>
+    <artifactId>jsyn</artifactId>
+    <version>16.7.5</version>
+</dependency>
     </dependencies>
 
 </project>
