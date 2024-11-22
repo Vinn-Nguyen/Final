@@ -17,7 +17,7 @@
 package com.code;
 
 import processing.core.*;
-import processing.sound.*; //wip
+import processing.sound.*; 
 
 public class Main extends PApplet {
     //init
